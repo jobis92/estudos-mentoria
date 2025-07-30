@@ -1,0 +1,2 @@
+INSERT INTO Locadora (NOME,TIPO, DIRETOR, GENERO) VALUES ('Stranger Things', 'Serie', 'Matt and Ross Duffer', 'Terror/Ficção');
+INSERT INTO Locadora (NOME,TIPO, DIRETOR, GENERO) VALUES ('Efeito Borboleta', 'Filme', 'Eric Bress and J. Mackye Gruber', 'Drama/Ficção');
