@@ -11,7 +11,6 @@ interface LocadoraApi {
     @GetMapping("/{itemId}")
     @ResponseStatus(value = HttpStatus.OK)
     fun getBydId(
-        @RequestParam itemId: String
+        @PathVariable itemId: String
     ): CatalogoResponse
-
 }

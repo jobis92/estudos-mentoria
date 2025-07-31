@@ -9,7 +9,6 @@ class LocadoraController(
     locadoraRepository: LocadoraRepository
 ) : LocadoraApi {
 
-
     override fun getBydId(itemId: String): CatalogoResponse {
 
         return CatalogoResponse(nome = "", tipo = "", diretor = "", genero = "")
