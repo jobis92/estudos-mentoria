@@ -24,6 +24,7 @@ class SecurityConfig(
                 it
                     .requestMatchers("/h2-console/**").permitAll() // Libera acesso ao H2 Console
                     .requestMatchers("/auth/**").permitAll()
+                    .requestMatchers("/catalogos/**").authenticated()
                     .anyRequest().authenticated() // Protege os demais endpoints
             }
             .csrf { csrf ->

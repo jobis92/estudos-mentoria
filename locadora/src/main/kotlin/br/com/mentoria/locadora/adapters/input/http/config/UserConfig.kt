@@ -13,7 +13,7 @@ class UserConfig {
 
     @Bean
     fun userDetailsService(): UserDetailsService {
-        val user = User.withUsername("John Doe")
+        val user = User.withUsername("john")
             .password(passwordEncoder().encode("teste"))
             .roles("USER")
             .build()
