@@ -1,10 +1,11 @@
-package br.com.mentoria.catalogo.adapters.input.http.controller
+package br.com.mentoria.catalogo.adapters.input.http.config
 
-import br.com.mentoria.catalogo.adapters.input.http.config.JwtUtil
+import br.com.mentoria.catalogo.adapters.input.http.config.jwt.JwtUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.User
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -19,7 +20,7 @@ class AuthController(
         val authToken = UsernamePasswordAuthenticationToken(request.username, request.password)
         val authentication = authenticationManager.authenticate(authToken)
 
-        val userDetails = authentication.principal as org.springframework.security.core.userdetails.User
+        val userDetails = authentication.principal as User
         val roles = userDetails.authorities.map { it.authority.removePrefix("ROLE_") }
 
         val token = jwtUtil.generateToken(userDetails.username, roles)

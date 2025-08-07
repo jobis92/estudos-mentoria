@@ -9,9 +9,15 @@ import org.springframework.stereotype.Repository
 class CatalogoRepository(
     private val crudRepository: CatalogoJpaRepository
 ) : FindCatalogoOutputPort {
-    override fun findById(id: String): Catalogo {
+    override fun findByFilters(
+        nome: String?,
+        tipo: String?,
+        diretor: String?,
+        genero: String?
+    ): List<Catalogo> {
         try {
-            return crudRepository.findById(id.toLong()).get().toDomain()
+            return crudRepository.findByFilters(nome, tipo, diretor, genero)
+                .map { it.toDomain() }
         } catch (e: Exception) {
             throw e
         }

@@ -10,7 +10,12 @@ class FindCatalogoUseCase(
     private val findCatalogoOutputPort: FindCatalogoOutputPort
 ) : FindCatalogoInputPort {
 
-    override fun findById(id: String): Catalogo {
-        return findCatalogoOutputPort.findById(id)
+    override fun findByFilters(
+        nome: String?,
+        tipo: String?,
+        diretor: String?,
+        genero: String?,
+    ): List<Catalogo> {
+        return findCatalogoOutputPort.findByFilters(nome, tipo, diretor, genero)
     }
 }

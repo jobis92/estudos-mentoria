@@ -1,4 +1,4 @@
-package br.com.mentoria.catalogo.adapters.input.http.config
+package br.com.mentoria.catalogo.adapters.input.http.config.jwt
 
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest

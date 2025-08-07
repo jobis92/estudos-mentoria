@@ -1,2 +1,17 @@
 INSERT INTO Catalogo (NOME,TIPO, DIRETOR, GENERO) VALUES ('Stranger Things', 'Serie', 'Matt and Ross Duffer', 'Terror/Ficção');
 INSERT INTO Catalogo (NOME,TIPO, DIRETOR, GENERO) VALUES ('Efeito Borboleta', 'Filme', 'Eric Bress and J. Mackye Gruber', 'Drama/Ficção');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Breaking Bad', 'Serie', 'Vince Gilligan', 'Crime/Drama');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('The Crown', 'Serie', 'Peter Morgan', 'Drama/Histórico');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('BoJack Horseman', 'Serie', 'Raphael Bob-Waksberg', 'Drama/Comédia');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Suits', 'Serie', 'Aaron Korsh', 'Drama/Jurídico');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Friends', 'Serie', 'David Crane e Marta Kauffman', 'Comédia');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Game of Thrones', 'Serie', 'David Benioff e D. B. Weiss', 'Fantasia/Drama');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('The Matrix', 'Filme', 'Lana e Lilly Wachowski', 'Ação/Ficção Científica');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Die Hard', 'Filme', 'John McTiernan', 'Ação/Suspense');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Spirited Away', 'Filme', 'Hayao Miyazaki', 'Animação/Fantasia');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Coco', 'Filme', 'Lee Unkrich e Adrian Molina', 'Animação/Musical');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('The Iron Giant', 'Filme', 'Brad Bird', 'Animação/Ficção Científica');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Logan', 'Filme', 'James Mangold', 'Ação/Drama');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Deadpool', 'Filme', 'Tim Miller', 'Ação/Comédia');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Midsommar', 'Filme', 'Ari Aster', 'Terror/Drama');
+INSERT INTO Catalogo (NOME, TIPO, DIRETOR, GENERO) VALUES ('Scream', 'Filme', 'Wes Craven', 'Terror/Suspense');
