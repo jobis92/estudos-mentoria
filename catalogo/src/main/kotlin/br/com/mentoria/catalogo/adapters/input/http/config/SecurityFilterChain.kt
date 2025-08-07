@@ -1,5 +1,6 @@
 package br.com.mentoria.catalogo.adapters.input.http.config
 
+import br.com.mentoria.catalogo.adapters.input.http.config.jwt.JwtAuthenticationFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -25,6 +26,7 @@ class SecurityConfig(
                     .requestMatchers("/h2-console/**").permitAll() // Libera acesso ao H2 Console
                     .requestMatchers("/auth/**").permitAll()
                     .requestMatchers("/catalogos/**").authenticated()
+                    .requestMatchers("/catalogos").authenticated()
                     .anyRequest().authenticated() // Protege os demais endpoints
             }
             .csrf { csrf ->

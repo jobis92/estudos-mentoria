@@ -12,13 +12,14 @@ class CatalogoController(
     private val findCatologoInputPort: FindCatalogoInputPort
 ) {
 
-    @GetMapping("/{id}")
+    @GetMapping()
     @ResponseStatus(value = HttpStatus.OK)
-    fun getById(
-        @PathVariable id: String
-    ): CatalogoResponse {
-
-        return findCatologoInputPort.findById(id).toDomain()
-
+    fun getAll(
+        @RequestParam(required = false, name = "nome") nome: String?,
+        @RequestParam(required = false, value = "tipo") tipo: String?,
+        @RequestParam(required = false, value = "diretor") diretor: String?,
+        @RequestParam(required = false, value = "genero") genero: String?
+    ): List<CatalogoResponse> {
+        return findCatologoInputPort.findByFilters(nome, tipo, diretor, genero).map { it.toDomain() }
     }
 }

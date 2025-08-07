@@ -1,11 +1,11 @@
-package br.com.mentoria.catalogo.adapters.input.http.config
+package br.com.mentoria.catalogo.adapters.input.http.config.jwt
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.nio.charset.StandardCharsets
-import java.util.*
+import java.util.Date
 import javax.crypto.spec.SecretKeySpec
 
 @Component
