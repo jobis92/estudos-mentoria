@@ -10,4 +10,9 @@ interface FindCatalogoOutputPort {
         diretor: String?,
         genero: String?
     ): List<Catalogo>
+
+    fun findByNomeAndTipo(
+        nome: String?,
+        tipo: String?,
+    ): List<Catalogo>
 }

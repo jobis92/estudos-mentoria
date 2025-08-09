@@ -3,6 +3,7 @@ package br.com.mentoria.catalogo.adapters.output.repository.adapter.catalogo
 import br.com.mentoria.catalogo.adapters.output.repository.entity.CatalogoEntity
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
+import org.springframework.data.repository.query.Param
 
 interface CatalogoJpaRepository : CrudRepository<CatalogoEntity, Long> {
 
@@ -22,5 +23,9 @@ interface CatalogoJpaRepository : CrudRepository<CatalogoEntity, Long> {
         genero: String?
     ): List<CatalogoEntity>
 
+    fun findByNomeAndTipo(
+        @Param("nome") nome: String?,
+        @Param("tipo") tipo: String?
+    ):List<CatalogoEntity>
 
 }

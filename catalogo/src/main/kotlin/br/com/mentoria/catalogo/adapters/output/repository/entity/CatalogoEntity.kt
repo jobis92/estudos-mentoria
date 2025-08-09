@@ -10,9 +10,9 @@ import jakarta.persistence.Id
 data class CatalogoEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?,
-    val nome: String,
-    val tipo: String,
-    val diretor: String,
-    val genero: String
+    val id: Long? = null,
+    val nome: String?,
+    val tipo: String?,
+    val diretor: String?,
+    val genero: String?
 )

@@ -19,7 +19,7 @@ class JwtAuthenticationFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        println("🔐 JWT Filter interceptando requisição: ${request.requestURI}")
+        println("JWT Filter interceptando requisição: ${request.requestURI}")
 
         val authHeader = request.getHeader("Authorization")
         if (authHeader != null && authHeader.startsWith("Bearer ")) {

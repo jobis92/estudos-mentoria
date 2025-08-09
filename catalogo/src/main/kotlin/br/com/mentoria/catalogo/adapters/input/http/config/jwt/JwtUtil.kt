@@ -18,7 +18,7 @@ class JwtUtil(
     fun generateToken(username: String, roles: List<String>): String {
         return Jwts.builder()
             .setSubject(username)
-            .claim("roles", roles) // 👈 adiciona as roles como claim
+            .claim("roles", roles) // adiciona as roles como claim
             .setIssuedAt(Date())
             .setExpiration(Date(System.currentTimeMillis() + 1000 * 60 * 60))
             .signWith(key, SignatureAlgorithm.HS512)
@@ -34,7 +34,7 @@ class JwtUtil(
                 .parseClaimsJws(token)
             !claims.body.expiration.before(Date())
         } catch (e: Exception) {
-            println("Token inválido: ${e.message}") // 👈 ajuda no debug
+            println("Token inválido: ${e.message}") //  ajuda no debug
             false
         }
     }

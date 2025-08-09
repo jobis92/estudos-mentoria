@@ -1,15 +1,23 @@
 package br.com.mentoria.catalogo.adapters.input.http.controller
 
+import br.com.mentoria.catalogo.adapters.input.http.request.CatalogoRequest
 import br.com.mentoria.catalogo.adapters.input.http.response.CatalogoResponse
 import br.com.mentoria.catalogo.adapters.input.http.response.toDomain
+import br.com.mentoria.catalogo.adapters.input.http.response.toResponse
+import br.com.mentoria.catalogo.application.port.input.CreateCatalogoInputPort
 import br.com.mentoria.catalogo.application.port.input.FindCatalogoInputPort
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/catalogos")
+@Validated
 class CatalogoController(
-    private val findCatologoInputPort: FindCatalogoInputPort
+    private val findCatologoInputPort: FindCatalogoInputPort,
+    private val createCatalogoInputPort: CreateCatalogoInputPort
 ) {
 
     @GetMapping()
@@ -20,6 +28,18 @@ class CatalogoController(
         @RequestParam(required = false, value = "diretor") diretor: String?,
         @RequestParam(required = false, value = "genero") genero: String?
     ): List<CatalogoResponse> {
-        return findCatologoInputPort.findByFilters(nome, tipo, diretor, genero).map { it.toDomain() }
+        return findCatologoInputPort.findByFilters(nome, tipo, diretor, genero).map { it.toResponse() }
     }
+
+    @PostMapping(
+        consumes = [MediaType.APPLICATION_JSON_VALUE]
+    )
+    @ResponseStatus(HttpStatus.CREATED)
+
+    fun create(
+        @RequestBody @Valid catalogoRequest: CatalogoRequest
+    ): CatalogoResponse {
+        return createCatalogoInputPort.create(catalogoRequest.toDomain()).toResponse()
+    }
+
 }
