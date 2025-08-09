@@ -10,3 +10,10 @@ fun CatalogoEntity.toDomain() = Catalogo(
     diretor = diretor,
     genero = genero
 )
+
+fun Catalogo.toEntity() = CatalogoEntity(
+    nome = nome,
+    tipo = tipo,
+    diretor = diretor,
+    genero = genero
+)
