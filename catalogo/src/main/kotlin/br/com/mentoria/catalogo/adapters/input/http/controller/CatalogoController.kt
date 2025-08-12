@@ -10,6 +10,7 @@ import br.com.mentoria.catalogo.application.port.input.FindCatalogoInputPort
 import br.com.mentoria.catalogo.application.port.input.UpdateCatalogoInputPort
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
 @RestController

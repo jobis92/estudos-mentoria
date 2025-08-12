@@ -1,7 +1,9 @@
 package br.com.mentoria.catalogo.adapters.output.repository.adapter.catalogo
 
 import br.com.mentoria.catalogo.adapters.output.repository.entity.toDomain
+import br.com.mentoria.catalogo.adapters.output.repository.entity.toEntity
 import br.com.mentoria.catalogo.application.core.domain.Catalogo
+import br.com.mentoria.catalogo.application.port.output.CreateCatalogoOutputPort
 import br.com.mentoria.catalogo.application.port.output.FindCatalogoOutputPort
 import br.com.mentoria.catalogo.application.port.output.UpdateCatalogoOutputPort
 import org.springframework.stereotype.Repository
