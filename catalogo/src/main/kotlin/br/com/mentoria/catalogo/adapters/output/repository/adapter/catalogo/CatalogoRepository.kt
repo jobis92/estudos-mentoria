@@ -4,6 +4,7 @@ import br.com.mentoria.catalogo.adapters.output.repository.entity.toDomain
 import br.com.mentoria.catalogo.adapters.output.repository.entity.toEntity
 import br.com.mentoria.catalogo.application.core.domain.Catalogo
 import br.com.mentoria.catalogo.application.port.output.CreateCatalogoOutputPort
+import br.com.mentoria.catalogo.application.port.output.DeleteCatalogoOutputPort
 import br.com.mentoria.catalogo.application.port.output.FindCatalogoOutputPort
 import br.com.mentoria.catalogo.application.port.output.UpdateCatalogoOutputPort
 import org.springframework.stereotype.Repository
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository
 @Repository
 class CatalogoRepository(
     private val crudRepository: CatalogoJpaRepository
-) : FindCatalogoOutputPort, CreateCatalogoOutputPort, UpdateCatalogoOutputPort {
+) : FindCatalogoOutputPort, CreateCatalogoOutputPort, UpdateCatalogoOutputPort, DeleteCatalogoOutputPort {
     override fun findByFilters(
         nome: String?,
         tipo: String?,
@@ -61,6 +62,14 @@ class CatalogoRepository(
         try {
             return crudRepository.save(catalogo.toEntity()).toDomain()
 
+        } catch (ex: Exception) {
+            throw ex
+        }
+    }
+
+    override fun delete(itemId: String) {
+        try {
+            return crudRepository.deleteById(itemId.toLong())
         } catch (ex: Exception) {
             throw ex
         }

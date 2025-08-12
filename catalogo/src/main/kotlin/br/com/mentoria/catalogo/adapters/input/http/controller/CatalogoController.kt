@@ -6,6 +6,7 @@ import br.com.mentoria.catalogo.adapters.input.http.response.CatalogoResponse
 import br.com.mentoria.catalogo.adapters.input.http.response.toDomain
 import br.com.mentoria.catalogo.adapters.input.http.response.toResponse
 import br.com.mentoria.catalogo.application.port.input.CreateCatalogoInputPort
+import br.com.mentoria.catalogo.application.port.input.DeleteCatalogoInputPort
 import br.com.mentoria.catalogo.application.port.input.FindCatalogoInputPort
 import br.com.mentoria.catalogo.application.port.input.UpdateCatalogoInputPort
 import jakarta.validation.Valid
@@ -18,7 +19,8 @@ import org.springframework.web.bind.annotation.*
 class CatalogoController(
     private val findCatologoInputPort: FindCatalogoInputPort,
     private val createCatalogoInputPort: CreateCatalogoInputPort,
-    private val updateCatalogoInputPort: UpdateCatalogoInputPort
+    private val updateCatalogoInputPort: UpdateCatalogoInputPort,
+    private val deleteCatalogoInputPort: DeleteCatalogoInputPort
 ) {
 
     @GetMapping()
@@ -51,4 +53,11 @@ class CatalogoController(
         return updateCatalogoInputPort.update(itemId, catalogoUpdateRequest.toDomain()).toResponse()
     }
 
+    @DeleteMapping("/{itemId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun delete(
+        @PathVariable itemId: String
+    ) {
+        deleteCatalogoInputPort.delete(itemId)
+    }
 }
