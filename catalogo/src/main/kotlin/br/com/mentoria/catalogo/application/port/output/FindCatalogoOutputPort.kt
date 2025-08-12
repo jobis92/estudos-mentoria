@@ -15,4 +15,9 @@ interface FindCatalogoOutputPort {
         nome: String?,
         tipo: String?,
     ): List<Catalogo>
+
+    fun findById(
+        itemId: String,
+    ): Catalogo
+
 }

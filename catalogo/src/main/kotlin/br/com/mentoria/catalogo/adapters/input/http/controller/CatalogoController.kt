@@ -1,11 +1,13 @@
 package br.com.mentoria.catalogo.adapters.input.http.controller
 
 import br.com.mentoria.catalogo.adapters.input.http.request.CatalogoRequest
+import br.com.mentoria.catalogo.adapters.input.http.request.CatalogoUpdateRequest
 import br.com.mentoria.catalogo.adapters.input.http.response.CatalogoResponse
 import br.com.mentoria.catalogo.adapters.input.http.response.toDomain
 import br.com.mentoria.catalogo.adapters.input.http.response.toResponse
 import br.com.mentoria.catalogo.application.port.input.CreateCatalogoInputPort
 import br.com.mentoria.catalogo.application.port.input.FindCatalogoInputPort
+import br.com.mentoria.catalogo.application.port.input.UpdateCatalogoInputPort
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.*
 @Validated
 class CatalogoController(
     private val findCatologoInputPort: FindCatalogoInputPort,
-    private val createCatalogoInputPort: CreateCatalogoInputPort
+    private val createCatalogoInputPort: CreateCatalogoInputPort,
+    private val updateCatalogoInputPort: UpdateCatalogoInputPort
 ) {
 
     @GetMapping()
@@ -35,11 +38,19 @@ class CatalogoController(
         consumes = [MediaType.APPLICATION_JSON_VALUE]
     )
     @ResponseStatus(HttpStatus.CREATED)
-
     fun create(
         @RequestBody @Valid catalogoRequest: CatalogoRequest
     ): CatalogoResponse {
         return createCatalogoInputPort.create(catalogoRequest.toDomain()).toResponse()
+    }
+
+    @PatchMapping("/{itemId}")
+    @ResponseStatus(HttpStatus.OK)
+    fun update(
+        @PathVariable itemId: String,
+        @RequestBody catalogoUpdateRequest: CatalogoUpdateRequest
+    ): CatalogoResponse {
+        return updateCatalogoInputPort.update(itemId, catalogoUpdateRequest.toDomain()).toResponse()
     }
 
 }

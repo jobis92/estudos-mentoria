@@ -12,6 +12,7 @@ fun CatalogoEntity.toDomain() = Catalogo(
 )
 
 fun Catalogo.toEntity() = CatalogoEntity(
+    id= id?.toLong(),
     nome = nome,
     tipo = tipo,
     diretor = diretor,
